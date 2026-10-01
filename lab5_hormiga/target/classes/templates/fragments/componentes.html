@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+    <!-- Fragmento Navbar -->
+    <nav th:fragment="navbar" class="navbar navbar-dark bg-dark mb-4">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Hormiga Charlie - Simulador</span>
+        </div>
+    </nav>
+
+    <!-- Fragmento Matriz -->
+    <div th:fragment="matrizFrag(tablero)" class="d-inline-block border border-3 border-dark">
+        <div th:each="fila, rowStat : ${tablero.matriz}" class="d-flex">
+            
+            <div th:each="celda, colStat : ${fila}" 
+                 class="d-flex justify-content-center align-items-center"
+                 style="width: 40px; height: 40px; font-size: 20px; border: 1px solid #ccc;"
+                 th:styleappend="${celda == 0 ? 'background-color: white;' : 'background-color: black; color: white;'}">
+                 
+                 <!-- Mostramos la hormiga si las coordenadas coinciden -->
+                 <span th:if="${rowStat.index == tablero.antY and colStat.index == tablero.antX}" 
+                       th:switch="${tablero.antDir}">
+                    <span th:case="'U'">⬆️</span>
+                    <span th:case="'D'">⬇️</span>
+                    <span th:case="'L'">⬅️</span>
+                    <span th:case="'R'">➡️</span>
+                 </span>
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>

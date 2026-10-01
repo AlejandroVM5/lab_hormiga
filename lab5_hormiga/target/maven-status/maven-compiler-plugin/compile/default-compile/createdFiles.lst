@@ -1,0 +1,5 @@
+com\example\hormiga\dto\TableroDto.class
+com\example\hormiga\Application.class
+com\example\hormiga\controller\HormigaController.class
+com\example\hormiga\model\Simulacion.class
+com\example\hormiga\dto\ConfiguracionDto.class
